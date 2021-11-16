@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Landing Page</title>
+    <title>Catálogo de filmes</title>
     <link rel="icon" type="image/png" href="/img/banner.png" />
 </head>
 
@@ -18,10 +18,7 @@
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#cursos">Cursos</a>
-            </li>
-            <li>
-                <a href="#inscrever">Inscreva-se</a>
+                <a href="#criar">Criar</a>
             </li>
         </ul>
     </nav>
@@ -42,42 +39,13 @@
 
     <section id="cursos">
         <section class="card">
-            <article id="title">
-                <h2>Principais especialidades, linguagens e frameworks do curso de Hard Skills:</h2>
-                <img src="/img/cursos.png" alt="">
-            </article>
-
-            <!-- <article id="content">
-                <h3>Desenvolvimento de Software</h3>
-
-                <ul>
-                    <li>Backend</li>
-                    <li>Frontend</li>
-                    <li>Fullstack</li>
-                </ul>
-                <h3>Analytics</h3>
-                <ul>
-                    <li>Engenharia de dados</li>
-                    <li>Ciência de dados</li>
-                </ul>
-
-                <a id="inscrever" href="#inscrever">Inscreva-se agora!</a>
-            </article> -->
             <article id="content">
-                <h3>Desenvolvimento de Software</h3>
+                <h3>Filmes cadastrados:</h3>
                 <ul>
                     <% devList.forEach(item => { %>
                         <li><%= item %></li>
                     <% }) %> 
                 </ul>
-                <h3>Analytics</h3>
-                <ul>
-                    <% analyticsList.forEach(item => { %>
-                        <li><%= item %></li>
-                    <% }) %> 
-                </ul>
-
-                <a id="inscrever" href="#inscrever">Inscreva-se agora!</a>
             </article>
         </section>
     </section>
