@@ -30,19 +30,21 @@
     <% }  %>
 
     <section id="cursos">
-        <h3>Filmes cadastrados:</h3>
-        <% filmes.forEach(item => { %>
-            <section class="card">
-                <article id="content">
-                    <ul>
-                        <li>ID: <%= item.id %></li>
-                        <li>Nome: <%= item.nome %></li>
-                        <li>Descrição: <%= item.descricao %></li>
-                        <img src="<%= item.imagem %>" width=250>
-                    </ul>
-                </article>
-            </section>
-        <% }) %> 
+        <h1 style="text-align:center">Filmes cadastrados:</h1>
+        <section id="filmes">
+            <% filmes.forEach(item => { %>
+                <section class="card">
+                    <article id="content">
+                        <ul>
+                            <li>ID: <%= item.id %></li>
+                            <li>Nome: <%= item.nome %></li>
+                            <li>Descrição: <%= item.descricao %></li>
+                            <img src="<%= item.imagem %>" width=250>
+                        </ul>
+                    </article>
+                </section>
+            <% }) %> 
+        </section>
     </section>
 
     <section id="inscrever">

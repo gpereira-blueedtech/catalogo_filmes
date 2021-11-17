@@ -121,6 +121,15 @@ section#cursos section.card {
   position: relative;
 }
 
+section#filmes {
+  background-color: rgb(255, 68, 230);
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 6rem 3rem 3rem 3rem;
+}
+
 article#title {
   width: 50%;
 }
