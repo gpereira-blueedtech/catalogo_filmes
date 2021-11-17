@@ -31,6 +31,7 @@
 
     <section id="cursos">
         <h1 style="text-align:center">Filmes cadastrados:</h1>
+        <h3 style="text-align:center">Clique na imagem para detalhes</h3>
         <section id="filmes">
             <% filmes.forEach(item => { %>
                 <section class="card">
@@ -39,7 +40,9 @@
                             <li>ID: <%= item.id %></li>
                             <li>Nome: <%= item.nome %></li>
                             <li>Descrição: <%= item.descricao %></li>
-                            <img src="<%= item.imagem %>" width=250>
+                            <a href="/filmes/<%= item.id %>">
+                                <img src="<%= item.imagem %>" width=250>
+                            </a>
                         </ul>
                     </article>
                 </section>

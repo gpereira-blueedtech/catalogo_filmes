@@ -20,5 +20,12 @@ app.get("/", async (req, res) => {
     });
 });
 
+// Rota para procurar os detalhes de um filme baseado no seu ID (PK)
+app.get("/filmes/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+  res.render("detalhes", {
+    filme,
+  });
+});
 
 app.listen(port, () => console.log(`Servidor rodando em http://localhost:${port}`))
