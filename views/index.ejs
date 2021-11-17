@@ -29,25 +29,20 @@
         </section>
     <% }  %>
 
-    <header>
-        <article>
-            <h1>Bem vindo(a)!</h1>
-        </article>
-
-        <img src="/img/banner.png" class="img-fluid gif" alt="Banner">
-    </header>
-
     <section id="cursos">
-        <section class="card">
-            <article id="content">
-                <h3>Filmes cadastrados:</h3>
-                <ul>
-                    <% devList.forEach(item => { %>
-                        <li><%= item %></li>
-                    <% }) %> 
-                </ul>
-            </article>
-        </section>
+        <h3>Filmes cadastrados:</h3>
+        <% filmes.forEach(item => { %>
+            <section class="card">
+                <article id="content">
+                    <ul>
+                        <li>ID: <%= item.id %></li>
+                        <li>Nome: <%= item.nome %></li>
+                        <li>Descrição: <%= item.descricao %></li>
+                        <img src="<%= item.imagem %>" width=250>
+                    </ul>
+                </article>
+            </section>
+        <% }) %> 
     </section>
 
     <section id="inscrever">
