@@ -11,10 +11,15 @@ app.use(express.urlencoded());
 // Fazendo a conexão com o banco e recebendo o modelo do Sequelize
 const Filme = require("./models/filme");
 
-const message = "";
+var message = "";
 
 app.get("/", async (req, res) => {
     const filmes = await Filme.findAll();
+
+    setTimeout(() => {
+      message = ""
+    }, 1000)
+
     res.render("index", {
       filmes, message
     });
@@ -28,17 +33,18 @@ app.get("/filmes/:id", async (req, res) => {
   });
 });
 
+
 app.get("/deletar/:id", async (req, res) => {
   const filme = await Filme.findByPk(req.params.id);
 
   if (!filme) {
     res.render("deletar", {
-      mensagem: "Filme não encontrado!",
+      filme,
+      message: "Filme não encontrado!",
     });
-  }
-
+  } 
   res.render("deletar", {
-    filme,
+    filme, message
   });
 });
 
@@ -47,7 +53,7 @@ app.post("/deletar/:id", async (req, res) => {
 
   if (!filme) {
     res.render("deletar", {
-      message: "Filme não encontrado!",
+      filme, message: "Filme não encontrado!",
     });
   }
 
@@ -57,6 +63,7 @@ app.post("/deletar/:id", async (req, res) => {
 
   res.redirect("/");
 });
+
 
 app.get("/criar", (req, res) => {
   res.render("criar", {

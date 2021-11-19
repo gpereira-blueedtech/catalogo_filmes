@@ -192,6 +192,7 @@ section#inscrever h2 {
 
 section#inscrever form {
   width: 50%;
+  padding: 6rem 3rem 3rem 3rem;
 }
 
 section#inscrever form div input {
