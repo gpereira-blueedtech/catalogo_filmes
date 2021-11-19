@@ -28,12 +28,72 @@ app.get("/filmes/:id", async (req, res) => {
   });
 });
 
+app.get("/deletar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("deletar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+
+  res.render("deletar", {
+    filme,
+  });
+});
+
+app.post("/deletar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("deletar", {
+      message: "Filme não encontrado!",
+    });
+  }
+
+  await filme.destroy();
+
+  message = `Filme ${filme.nome} deletado com sucesso!`
+
+  res.redirect("/");
+});
+
 app.get("/criar", (req, res) => {
   res.render("criar", {
     message
   });
 });
 
+app.get("/editar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  if (!filme) {
+    res.render("editar", {
+      mensagem: "Filme não encontrado!",
+    });
+  }
+
+  res.render("editar", {
+    filme, message
+  });
+});
+
+app.post("/editar/:id", async (req, res) => {
+  const filme = await Filme.findByPk(req.params.id);
+
+  const { nome, descricao, imagem } = req.body;
+
+  filme.nome = nome;
+  filme.descricao = descricao;
+  filme.imagem = imagem;
+
+  const filmeEditado = await filme.save();
+
+  res.render("editar", {
+    filme: filmeEditado,
+    message: "Filme editado com sucesso!",
+  });
+});
 
 app.post("/criar", async (req, res) => {
   const { nome, descricao, imagem } = req.body;
